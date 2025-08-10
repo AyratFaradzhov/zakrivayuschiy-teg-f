@@ -280,7 +280,6 @@ main {
 @supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
   .card__watermark {
     -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
     text-shadow: none;
   }
 }
