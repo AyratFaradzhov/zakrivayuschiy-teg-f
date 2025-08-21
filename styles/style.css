@@ -3,47 +3,49 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   color: var(--color);
-  font-family: var(--font-base), fantasy;
+  font-family: var(--font-base), sans-serif;
+  font-variation-settings: "wght" var(--wght);
   font-size: var(--font-size);
   background-image: var(--cover);
   background-attachment: fixed;
   background-size: cover;
   background-color: var(--page-bg-color);
+  padding-block-start: 100px;
 }
 
 .header {
   display: grid;
-  padding-block-start: 50px;
   width: 100%;
 }
 
 .welcome {
-  margin-inline: auto;
+  border: 2px solid var(--contour-color);
+  background-color: var(--page-bg-color);
+  max-inline-size: 696px;
+  margin: 0 auto;
 }
 
 .title__decor {
   display: block;
   font-family: var(--font-accent), fantasy;
   font-size: var(--hero-title);
+  margin-block-start: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
   align-items: center;
   justify-content: center;
   margin-block-end: 20px;
+  text-align: center;
 }
 
 .hero__title {
   display: grid;
-  place-items: center;
   max-inline-size: 696px;
-  margin-inline: auto;
   width: 100%;
-  border: 2px solid;
   font-size: var(--hero-subtitle);
   text-align: center;
   align-content: center;
   font-family: var(--font-accent), fantasy;
-  background-color: white;
-  min-block-size: 368px;
   text-transform: uppercase;
+  margin-block-end: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
 }
 
 main {
@@ -56,7 +58,7 @@ main {
 .card {
   display: grid;
   max-inline-size: 696px;
-  background-color: white;
+  background-color: var(--page-bg-color);
   border: 2px solid var(--border-color);
   margin-inline: auto;
 }
@@ -98,16 +100,19 @@ main {
 
 .card__title {
   font-variation-settings: "wght" var(--card-title-wght);
-  padding: 4px 10px;
-  font-family: var(--font-base);
+  padding: 5px 10px;
+  font-family: var(--font-base), sans-serif;
   font-size: var(--font-size);
+  border-block-end: 2px solid var(--border-color);
 }
 
 .card__watermark {
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--font-accent), "PressStart2P";
+  font-family: var(--font-accent), fantasy;
+  text-shadow: -1px 0 var(--page-bg-color), 1px 0 var(--page-bg-color),
+    0 -1px var(--page-bg-color), 0 1px var(--page-bg-color);
   font-size: 14px;
   color: var(--color);
   opacity: 0.5;
@@ -115,13 +120,12 @@ main {
 
 .card__details {
   display: grid;
-  font-family: "Inter-Variable", sans-serif;
+  font-family: var(--font-base), sans-serif;
+  border-block-start: 2px solid var(--border-color);
   padding: 25px;
-  padding-bottom: 22px;
   gap: 25px;
   font-size: 18px;
   line-height: 21px;
-  font-variation-settings: "wght" 410;
 }
 
 .card__paragraph {
@@ -139,6 +143,7 @@ main {
   background-color: transparent;
   color: var(--color);
   cursor: pointer;
+  margin: 0;
 }
 
 .card__icon-button:focus {
@@ -146,7 +151,7 @@ main {
 }
 
 .card__icon-button:focus-visible {
-  border-color: var(--text-color, #000000);
+  border: 2px solid var(--border-color, #000000);
 }
 
 .button:focus {
@@ -200,7 +205,7 @@ main {
 .button__text {
   font-size: var(--button-size);
   color: var(--button-text-color);
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   mix-blend-mode: difference;
 }
 
@@ -217,12 +222,12 @@ main {
   color: var(--button-text-color);
 }
 
-.footer {
+.save {
   display: flex;
   justify-content: center;
 }
 
-.footer__button {
+.save__button {
   min-height: 55px;
   gap: 8px;
   padding: 15px 20px;
@@ -238,6 +243,7 @@ main {
   position: fixed;
   background-color: var(--page-bg-color);
   border: 2px solid var(--color);
+  overflow: hidden;
 }
 
 .dialog::backdrop {
@@ -247,10 +253,11 @@ main {
 
 .dialog__title {
   display: flex;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
+  inline-size: 234px;
 }
 
 .dialog__container {
@@ -269,7 +276,7 @@ main {
 
 .dialog__message {
   display: flex;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   line-height: 150%;
   justify-content: center;
@@ -277,10 +284,14 @@ main {
   gap: 12px;
 }
 
-@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+@supports (
+  (text-stroke: 1px var(--page-bg-color)) or
+    (-webkit-text-stroke: 1px var(--page-bg-color))
+) {
   .card__watermark {
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--page-bg-color);
     text-shadow: none;
+    text-stroke: 1px var(--page-bg-color);
   }
 }
 
@@ -299,7 +310,7 @@ main {
     font-size: var(--hero-title);
   }
 
-  .footer__button {
+  .save__button {
     flex-direction: column;
   }
 
@@ -311,9 +322,5 @@ main {
   .dialog__message svg {
     width: 39px;
     height: 39px;
-  }
-
-  .card__watermark {
-    font-size: 14px;
   }
 }

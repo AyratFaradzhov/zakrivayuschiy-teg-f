@@ -7,11 +7,12 @@
   --hero-title: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   --font-accent: "PressStart2P";
   --page-bg-color: #fff;
+  --wght: 410;
+  --card-title-wght: 715;
   --font-base: "Inter-Variable";
   --border-color: var(--color);
   --font-size: 18px;
   --hero-subtitle: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  --card-title-wght: 715;
   --button-size: 14px;
   --contour-color: #000;
   --button-text-color: #fff;
