@@ -123,8 +123,6 @@ main {
   border-block-start: 2px solid var(--border-color);
   padding: 25px;
   gap: 25px;
-  font-size: 18px;
-  line-height: 21px;
 }
 
 .card__paragraph {
@@ -151,12 +149,6 @@ main {
   border-color: var(--border-color, #000);
 }
 
-.button {
-  box-sizing: border-box;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
 .button:focus {
   outline: none;
 }
@@ -172,6 +164,7 @@ main {
 }
 
 .button {
+  box-sizing: border-box;
   display: flex;
   position: relative;
   align-items: center;
@@ -332,6 +325,7 @@ main {
   }
 
   .dialog[open] {
+    overflow: hidden;
     padding: 30px 40px;
   }
 
